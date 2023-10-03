@@ -8,11 +8,14 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:vue/vue3-essential',
+    // 'plugin:vue/vue3-essential',
     'eslint:recommended',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier/skip-formatting',
+    // 'plugin:prettier/recommended',
+    'plugin:tailwindcss/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  plugins: ['tailwindcss']
 }

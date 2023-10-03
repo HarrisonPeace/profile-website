@@ -1,0 +1,67 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: theme('colors.dark');
+  font-weight: 400;
+}
+
+body,
+p {
+  @apply text-body-sm md:text-body;
+  font-family: theme('fontFamily.space');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: theme('fontFamily.rubik');
+}
+
+h1,
+h2,
+h3 {
+  @apply text-heading-sm md:text-heading-lg;
+}
+
+h4,
+h5,
+h6 {
+  @apply text-heading-xs md:text-heading-sm;
+}
+
+@property --a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 135deg;
+}
+
+@keyframes bg-rotate {
+  from {
+    --a: 140deg;
+  }
+  to {
+    --a: 280deg;
+  }
+}
+
+body {
+  background: linear-gradient(
+    var(--a),
+    rgba(109, 54, 226, 0.67) 22.75%,
+    rgba(111, 55, 220, 0.67) 25.77%,
+    rgba(251, 96, 96, 0.65) 48.02%,
+    rgba(78, 226, 54, 0.63) 64.21%
+  );
+  animation-name: bg-rotate;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-duration: 40s;
+}
