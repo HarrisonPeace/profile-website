@@ -23,7 +23,7 @@ defineProps({
   <a class="group/link relative w-fit" :href="href" :target="target">
     <h2 class="inline"><slot name="heading"></slot></h2>
     <svg
-      class="ease-out-quad absolute mb-1 h-8 w-8 transition-transform group-hover/link:rotate-180 lg:h-16 lg:w-16"
+      class="absolute mb-1 h-8 w-8 transition-transform ease-out-quad group-hover/link:rotate-180 lg:h-16 lg:w-16"
       :class="[svgBottom ? 'top-full' : 'bottom-full', svgLeft ? 'left-0' : 'right-0']"
       width="63"
       height="63"

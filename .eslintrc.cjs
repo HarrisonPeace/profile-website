@@ -15,7 +15,8 @@ module.exports = {
     'plugin:tailwindcss/recommended'
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
   plugins: ['tailwindcss']
 }

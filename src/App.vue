@@ -1,15 +1,21 @@
 <script setup>
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+
+import Line from './components/Line.vue'
 import List from './components/List.vue'
-import Link from './components/Link.vue'
+import Project from './components/Project.vue'
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isMediumScreenOrSmaller = breakpoints.smaller('lg')
 </script>
 
 <template>
   <header class="mx-auto mb-40 px-4 pt-6 3xl:container lg:mb-56 lg:px-10">
-    <h1 class="v-motion-roll-visible-once-bottom pb-6">
+    <h1 class="pb-6">
       <span>Harrison</span>
       <span class="text-stroke">Peace</span>
     </h1>
-    <div class="h-[1px] w-full bg-light"></div>
+    <Line class="h-[1px] w-full" show-on-load />
   </header>
 
   <section class="mx-auto px-4 3xl:container lg:px-10">
@@ -21,7 +27,7 @@ import Link from './components/Link.vue'
         <span>Exceptional</span><span class="text-stroke ms-12 md:ms-64">experiences</span>
       </h2>
     </div>
-    <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
+    <Line class="-ml-[6px] h-[1px] w-[101%]" show-on-load rotation="9" />
   </section>
 
   <main section class="mx-auto px-4 3xl:container xl:px-10">
@@ -34,9 +40,11 @@ import Link from './components/Link.vue'
         </p>
       </div>
       <div class="flex w-full justify-center xl:w-[1%]">
-        <div
-          class="mt-[-1px] h-[1px] w-full bg-light max-lg:mt-24 max-lg:rotate-[-9deg] lg:h-full lg:w-[2px]"
-        ></div>
+        <Line
+          class="mt-[-1px] h-[1px] w-full max-lg:mt-24 max-lg:rotate-[-9deg] lg:h-full lg:w-[2px]"
+          show-on-load
+          :rotation="isMediumScreenOrSmaller ? -9 : 0"
+        />
       </div>
       <div class="px-4 pt-32 xl:w-[49%] xl:px-10 xl:pt-72">
         <div class="mb-12 flex justify-center xl:mb-20">
@@ -45,7 +53,9 @@ import Link from './components/Link.vue'
               <span>JavaScript</span>
               <span class="ms-6 max-lg:inline-flex max-lg:flex-col lg:ms-12">
                 <span class="text-stroke">Technologies</span
-                ><span class="max-lg:ms-6">&<span class="text-stroke">Frameworks</span></span>
+                ><span class="max-lg:ms-6"
+                  ><span>&</span><span class="text-stroke">Frameworks</span></span
+                >
               </span>
             </template>
           </List>
@@ -54,7 +64,7 @@ import Link from './components/Link.vue'
           <List :listItems="['SCSS', 'Tailwind', 'Bootstrap']">
             <template v-slot:heading>
               <span>CSS</span>
-              <span class="ms-6">&<span class="text-stroke">Frameworks</span> </span>
+              <span class="ms-6"><span>&</span><span class="text-stroke">Frameworks</span></span>
             </template>
           </List>
         </div>
@@ -72,91 +82,67 @@ import Link from './components/Link.vue'
     </div>
 
     <div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
+      <Line class="-ml-[6px] h-[1px] w-[101%]" rotation="9" />
       <h2 class="flex flex-col py-[103px] lg:ml-80">
         <span>Recent</span><span class="text-stroke ms-24">projects</span>
       </h2>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
+      <Line class="-ml-[6px] h-[1px] w-[101%]" rotation="-9" />
     </div>
 
-    <div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
-      <div class="flex justify-end py-[127px] lg:mr-80">
-        <Link href="https://www.mcgrathnicol.com/" target="_blank">
-          <template v-slot:heading>
-            <span>McGrath</span><span class="text-stroke">Nicol</span>
-          </template>
-        </Link>
-      </div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
-    </div>
+    <Project href="https://www.mcgrathnicol.com/" py="py-[127px]">
+      <template v-slot:heading>
+        <span>McGrath</span><span class="text-stroke">Nicol</span>
+      </template>
+    </Project>
 
-    <div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
-      <div class="flex flex-col py-[127px] lg:ml-80">
-        <Link href="https://www.bounty.media/" target="_blank" svg-bottom svg-left>
-          <template v-slot:heading>
-            <span>Bounty</span><span class="text-stroke">Media</span>
-          </template>
-        </Link>
-      </div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
-    </div>
+    <Project href="https://www.mcgrathnicol.com/" py="py-[127px]" alignLeft>
+      <template v-slot:heading>
+        <span>Bounty</span><span class="text-stroke">Media</span>
+      </template>
+    </Project>
 
-    <div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
-      <div class="flex justify-end py-[103px] lg:mr-80">
-        <Link href="https://www.apwines.com/" target="_blank">
-          <template v-slot:heading>
-            <span class="flex flex-col">
-              <span><span>Andrew</span><span class="text-stroke">Peace</span></span>
-              <span>Wines</span>
-            </span>
-          </template>
-        </Link>
-      </div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
-    </div>
+    <Project href="https://www.mcgrathnicol.com/">
+      <template v-slot:heading>
+        <span class="flex flex-col">
+          <span><span>Andrew</span><span class="text-stroke">Peace</span></span>
+          <span>Wines</span>
+        </span>
+      </template>
+    </Project>
 
-    <div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
-      <div class="flex flex-col py-[103px] lg:ml-80">
-        <Link href="https://ada.org.au/" target="_blank" svg-bottom svg-left>
-          <template v-slot:heading>
-            <span class="flex flex-col">
-              <span>Australian</span>
-              <span>
-                <span class="text-stroke">Dental</span>
-                <span>Association</span>
-              </span>
-            </span>
-          </template>
-        </Link>
-      </div>
-      <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
-    </div>
+    <Project href="https://www.mcgrathnicol.com/" alignLeft>
+      <template v-slot:heading>
+        <span class="flex flex-col">
+          <span>Australian</span>
+          <span>
+            <span class="text-stroke">Dental</span>
+            <span>Association</span>
+          </span>
+        </span>
+      </template>
+    </Project>
 
     <div class="mb-32 mt-[calc(8%-2px)] h-fit">
-      <div class="ml-[4px] h-[1px] w-full origin-left rotate-[-5deg] bg-light"></div>
-      <div class="ml-[4.8%] mt-[-8.8%] h-[1px] w-[95%] origin-right rotate-[-8deg] bg-light"></div>
-      <div class="ml-[6.2%] mt-[13.1%] h-[1px] w-[80%] origin-left rotate-[-5deg] bg-light"></div>
-      <div class="ml-[20.9%] mt-[-7%] h-[1px] w-[65%] origin-right rotate-[-8deg] bg-light"></div>
-      <div class="ml-[21.5%] mt-[9%] h-[1px] w-[50%] origin-left rotate-[9deg] bg-light"></div>
-      <div class="ml-[31%] mt-[7.8%] h-[1px] w-[40%] origin-right rotate-[-8deg] bg-light"></div>
-      <div class="ml-[31.4%] mt-[5.5%] h-[1px] w-[25%] origin-left rotate-[10deg] bg-light"></div>
-      <div class="ml-[35.9%] mt-[4.3%] h-[1px] w-[20%] origin-right rotate-[-8deg] bg-light"></div>
-
-      <div class="ml-[36.1%] mt-[2.75%] h-[1px] w-[10%] origin-left rotate-[13deg] bg-light"></div>
-      <div class="ml-[40.8%] mt-[2.2%] h-[1px] w-[5%] origin-right rotate-[-36deg] bg-light"></div>
+      <Line class="ml-[4px] h-[1px] w-full origin-left" rotation="-5" />
+      <Line class="ml-[4.8%] mt-[-8.8%] h-[1px] w-[95%] origin-right" rotation="-8" />
+      <Line class="ml-[6.2%] mt-[13.1%] h-[1px] w-[80%] origin-left" rotation="-5" />
+      <Line class="ml-[20.9%] mt-[-7%] h-[1px] w-[65%] origin-right" rotation="-8" />
+      <Line class="ml-[21.5%] mt-[9%] h-[1px] w-[50%] origin-left" rotation="9" />
+      <Line class="ml-[31%] mt-[7.8%] h-[1px] w-[40%] origin-right" rotation="-8" />
+      <Line class="ml-[31.4%] mt-[5.5%] h-[1px] w-[25%] origin-left" rotation="10" />
+      <Line class="ml-[35.9%] mt-[4.3%] h-[1px] w-[20%] origin-right" rotation="-8" />
+      <Line class="ml-[36.1%] mt-[2.75%] h-[1px] w-[10%] origin-left" rotation="13" />
+      <Line class="ml-[40.8%] mt-[2.2%] h-[1px] w-[5%] origin-right" rotation="-36" />
     </div>
 
-    <div class="mb-20 flex flex-col justify-around gap-4 lg:flex-row">
+    <div class="flex flex-col justify-around gap-4 pb-20 lg:flex-row">
       <div class="flex items-center">
         <a
           href="mailto:harrison@apwines.com"
           class="text-hover font-rubik text-heading-sm md:text-heading-lg"
         >
-          <span>Contact</span><span class="text-stroke">Me</span>
+          <span v-motion-slide-visible-once-bottom>Contact</span
+          ><span v-motion-slide-visible-once-bottom class="text-stroke">Me</span>
         </a>
       </div>
       <div class="flex gap-4 lg:gap-7">
@@ -164,6 +150,7 @@ import Link from './components/Link.vue'
           href="https://www.linkedin.com/in/harrison-peace"
           target="_blank"
           class="transition-transform ease-in-out hover:rotate-180"
+          v-motion-slide-visible-once-bottom
         >
           <svg
             width="89"
@@ -183,6 +170,7 @@ import Link from './components/Link.vue'
           href="https://github.com/harrisonpeace"
           target="_blank"
           class="transition-transform ease-in-out hover:rotate-180"
+          v-motion-slide-visible-once-bottom
         >
           <svg
             width="89"
