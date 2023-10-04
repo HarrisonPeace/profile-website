@@ -5,7 +5,7 @@ import Link from './components/Link.vue'
 
 <template>
   <header class="mx-auto mb-40 px-4 pt-6 3xl:container lg:mb-56 lg:px-10">
-    <h1 class="pb-6">
+    <h1 class="v-motion-roll-visible-once-bottom pb-6">
       <span>Harrison</span>
       <span class="text-stroke">Peace</span>
     </h1>
@@ -24,22 +24,22 @@ import Link from './components/Link.vue'
     <div class="-ml-[6px] h-[1px] w-[101%] rotate-[9deg] bg-light"></div>
   </section>
 
-  <main section class="mx-auto px-4 3xl:container lg:px-10">
-    <div class="flex flex-col justify-center lg:flex-row">
-      <div class="px-4 pt-24 lg:w-[49%] lg:px-10 lg:pt-40">
+  <main section class="mx-auto px-4 3xl:container xl:px-10">
+    <div class="flex flex-col justify-center xl:flex-row">
+      <div class="px-4 pt-24 xl:w-[49%] xl:px-10 xl:pt-40">
         <p>
           I create user interfaces that are both visually stunning and functionally exceptional. I
           use modern technologies and frameworks to transform design concepts into elegant solutions
           that enhance user experiences.
         </p>
       </div>
-      <div class="flex w-full justify-center lg:w-[1%]">
+      <div class="flex w-full justify-center xl:w-[1%]">
         <div
           class="mt-[-1px] h-[1px] w-full bg-light max-lg:mt-24 max-lg:rotate-[-9deg] lg:h-full lg:w-[2px]"
         ></div>
       </div>
-      <div class="px-4 pt-32 lg:w-[49%] lg:px-10 lg:pt-72">
-        <div class="mb-12 flex justify-center lg:mb-20">
+      <div class="px-4 pt-32 xl:w-[49%] xl:px-10 xl:pt-72">
+        <div class="mb-12 flex justify-center xl:mb-20">
           <List :listItems="['React', 'Vue', 'Node', 'Next', 'Nuxt', 'Nest', 'TypeScript']">
             <template v-slot:heading>
               <span>JavaScript</span>
@@ -50,7 +50,7 @@ import Link from './components/Link.vue'
             </template>
           </List>
         </div>
-        <div class="max-lg:mb-16 max-lg:flex max-lg:justify-center lg:ml-6">
+        <div class="max-lg:mb-16 max-lg:flex max-lg:justify-center lg:ml-[10%] xl:ml-6">
           <List :listItems="['SCSS', 'Tailwind', 'Bootstrap']">
             <template v-slot:heading>
               <span>CSS</span>
@@ -58,7 +58,9 @@ import Link from './components/Link.vue'
             </template>
           </List>
         </div>
-        <div class="flex justify-center pb-32 lg:-mt-7 lg:mr-20 lg:justify-end lg:pb-14">
+        <div
+          class="flex justify-center pb-32 lg:mr-[20%] lg:justify-end lg:pb-14 xl:mt-24 3xl:-mt-7 3xl:mr-20"
+        >
           <List :listItems="['Wix', 'Storyblok', 'Shopify', 'Webflow']">
             <template v-slot:heading>
               <span>Other</span>
@@ -79,7 +81,7 @@ import Link from './components/Link.vue'
 
     <div>
       <div class="-ml-[6px] h-[1px] w-[101%] rotate-[-9deg] bg-light"></div>
-      <div class="flex justify-end py-[116px] lg:mr-80">
+      <div class="flex justify-end py-[127px] lg:mr-80">
         <Link href="https://www.mcgrathnicol.com/" target="_blank">
           <template v-slot:heading>
             <span>McGrath</span><span class="text-stroke">Nicol</span>
@@ -136,33 +138,16 @@ import Link from './components/Link.vue'
 
     <div class="mb-32 mt-[calc(8%-2px)] h-fit">
       <div class="ml-[4px] h-[1px] w-full origin-left rotate-[-5deg] bg-light"></div>
-      <div
-        class="ml-[5%] mt-[calc(-9%+3px)] h-[1px] w-[95%] origin-right rotate-[-8deg] bg-light"
-      ></div>
-      <div
-        class="ml-[6%] mt-[calc(13%+3px)] h-[1px] w-[80%] origin-left rotate-[-5deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(21%-5px)] mt-[calc(-7%+0px)] h-[1px] w-[65%] origin-right rotate-[-8deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(22%-10px)] mt-[calc(9%+0px)] h-[1px] w-[50%] origin-left rotate-[9deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(31%-1px)] mt-[calc(8%-4px)] h-[1px] w-[40%] origin-right rotate-[-8deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(31%+5px)] mt-[calc(6%-8px)] h-[1px] w-[25%] origin-left rotate-[10deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(36%-1px)] mt-[calc(5%-10px)] h-[1px] w-[20%] origin-right rotate-[-8deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(36%+2px)] mt-[calc(3%-5px)] h-[1px] w-[10%] origin-left rotate-[13deg] bg-light"
-      ></div>
-      <div
-        class="ml-[calc(41%-1px)] mt-[calc(2%+2px)] h-[1px] w-[5%] origin-right rotate-[-36deg] bg-light"
-      ></div>
+      <div class="ml-[4.8%] mt-[-8.8%] h-[1px] w-[95%] origin-right rotate-[-8deg] bg-light"></div>
+      <div class="ml-[6.2%] mt-[13.1%] h-[1px] w-[80%] origin-left rotate-[-5deg] bg-light"></div>
+      <div class="ml-[20.9%] mt-[-7%] h-[1px] w-[65%] origin-right rotate-[-8deg] bg-light"></div>
+      <div class="ml-[21.5%] mt-[9%] h-[1px] w-[50%] origin-left rotate-[9deg] bg-light"></div>
+      <div class="ml-[31%] mt-[7.8%] h-[1px] w-[40%] origin-right rotate-[-8deg] bg-light"></div>
+      <div class="ml-[31.4%] mt-[5.5%] h-[1px] w-[25%] origin-left rotate-[10deg] bg-light"></div>
+      <div class="ml-[35.9%] mt-[4.3%] h-[1px] w-[20%] origin-right rotate-[-8deg] bg-light"></div>
+
+      <div class="ml-[36.1%] mt-[2.75%] h-[1px] w-[10%] origin-left rotate-[13deg] bg-light"></div>
+      <div class="ml-[40.8%] mt-[2.2%] h-[1px] w-[5%] origin-right rotate-[-36deg] bg-light"></div>
     </div>
 
     <div class="mb-20 flex flex-col justify-around gap-4 lg:flex-row">
