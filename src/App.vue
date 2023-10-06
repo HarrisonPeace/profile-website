@@ -95,13 +95,13 @@ const isMediumScreenOrSmaller = breakpoints.smaller('lg')
       </template>
     </Project>
 
-    <Project href="https://www.mcgrathnicol.com/" py="py-[127px]" alignLeft>
+    <Project href="https://www.bounty.media/" py="py-[127px]" alignLeft>
       <template v-slot:heading>
         <span>Bounty</span><span class="text-stroke">Media</span>
       </template>
     </Project>
 
-    <Project href="https://www.mcgrathnicol.com/">
+    <Project href="https://www.apwines.com/">
       <template v-slot:heading>
         <span class="flex flex-col">
           <span><span>Andrew</span><span class="text-stroke">Peace</span></span>
@@ -110,12 +110,11 @@ const isMediumScreenOrSmaller = breakpoints.smaller('lg')
       </template>
     </Project>
 
-    <Project href="https://www.mcgrathnicol.com/" alignLeft>
+    <Project href="https://ada.org.au/" alignLeft py="py-[127px]">
       <template v-slot:heading>
         <span class="flex flex-col">
-          <span>Australian</span>
+          <span><span>Australian</span><span class="text-stroke">Dental</span></span>
           <span>
-            <span class="text-stroke">Dental</span>
             <span>Association</span>
           </span>
         </span>
